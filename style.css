@@ -1,0 +1,21 @@
+body {
+    padding: 30px;
+    font-family: sans-serif;
+}
+
+.links {
+    margin-bottom: 1em;
+}
+
+.page {
+    color: #999;
+    margin-right: 0.6em;
+}
+
+.page--selected {
+    color: #45aeb1;
+}
+
+svg {
+    border: 1px solid #ddd;
+}

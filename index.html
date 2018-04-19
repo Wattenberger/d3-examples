@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>D3.js Examples - Timeline</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="links" class="links"></div>
+    <svg id="svg"></svg>
+    <div id="content"></div>
+
+    <script src="data.js"></script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script>
+        (function() {
+            const script = document.createElement("script");
+            const params = getQueryParams(location.search) || {};
+            const currentPage = params.page || "home";
+            script.src = `${currentPage}.js`;
+            script.type = "text/javascript";
+            document.getElementsByTagName("head")[0].appendChild(script);
+
+
+            ['home', 'scales', 'timeline', 'scatterplot', 'weather-scatterplot'].map(page => {
+                d3.select("#links").append("a")
+                    .attr("href", `?page=${page}`)
+                    .text(page)
+                    .attr("class", page == currentPage ? "page page--selected" : "page")
+            })
+
+            function getQueryParams(qs) {
+                qs = qs.split('+').join(' ');
+                var params = {},
+                    tokens,
+                    re = /[?&]?([^=]+)=([^&]*)/g;
+                while (tokens = re.exec(qs)) {
+                    params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+                }
+                return params;
+            }
+        })()
+    </script>
+</body>
+</html>
