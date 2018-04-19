@@ -24,6 +24,9 @@ const renderCircles = () => {
         .attr("cy", d => d.y)
         .attr("r", 5)
 
+console.log("enter", circle.enter())
+console.log("exit", circle.exit())
+
     // circle.exit()
     //     .remove()
 }

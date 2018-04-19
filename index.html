@@ -23,7 +23,7 @@
             document.getElementsByTagName("head")[0].appendChild(script);
 
 
-            ['home', 'svg', 'scales', 'dataset', 'timeline', 'scatterplot', 'weather-scatterplot'].map(page => {
+            ['intro', 'drawing-in-the-browser', 'scales', 'dataset', 'timeline', 'scatterplot', 'weather-scatterplot'].map(page => {
                 d3.select("#links").append("a")
                     .attr("href", `?page=${page}`)
                     .text(page)

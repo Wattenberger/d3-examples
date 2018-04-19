@@ -1,7 +1,12 @@
-const svg = d3.select("#svg")
-const content = d3.select("#content")
+const height = 300
+const width = 600
 
-content.append("h2").text("Svg")
+const content = d3.select("#content")
+const svg = content.append("svg")
+    .attr("height", height)
+    .attr("width", width)
+
+content.append("h2").text("Drawing with svg")
 content.append("a").text("Attributes").attr("href", "https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute")
 
 // <circle cx="0" cy="0" r="10" />

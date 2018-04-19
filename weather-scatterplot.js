@@ -27,59 +27,59 @@ const wrapper = svg.append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`)
 
 
-// make scales
-const xScale = d3.scaleLinear()
-    .range([0, width])
-    .domain(d3.extent(parsedData, d => d.TMAX))
-const yScale = d3.scaleLinear()
-    .range([height, 0])
-    .domain(d3.extent(parsedData, d => d.TMIN))
+// // make scales
+// const xScale = d3.scaleLinear()
+//     .range([0, width])
+//     .domain(d3.extent(parsedData, d => d.TMAX))
+// const yScale = d3.scaleLinear()
+//     .range([height, 0])
+//     .domain(d3.extent(parsedData, d => d.TMIN))
 
 
-// draw circles
-let circle = wrapper.selectAll(".circle")
-    .data(parsedData)
+// // draw circles
+// let circle = wrapper.selectAll(".circle")
+//     .data(parsedData)
 
-circle.enter().append("circle")
-    .attr("cx", d => xScale(d.TMAX))
-    .attr("cy", d => yScale(d.TMIN))
-    .attr("r", 3)
-    .attr("class", "circle")
-    .style("fill", "#45aeb1")
-    // .style("opacity", "0.1")
+// circle.enter().append("circle")
+//     .attr("cx", d => xScale(d.TMAX))
+//     .attr("cy", d => yScale(d.TMIN))
+//     .attr("r", 3)
+//     .attr("class", "circle")
+//     .style("fill", "#45aeb1")
+//     // .style("opacity", "0.1")
 
-circle.exit()
-    .remove()
+// circle.exit()
+//     .remove()
 
 
-// draw axes, with labels!
-const xAxis = d3.axisBottom(xScale)
-wrapper.append("g")
-    .attr("transform", `translate(0, ${height})`)
-    .call(xAxis)
+// // draw axes, with labels!
+// const xAxis = d3.axisBottom(xScale)
+// wrapper.append("g")
+//     .attr("transform", `translate(0, ${height})`)
+//     .call(xAxis)
 
-wrapper.append("text")
-    .attr("y", height + 25)
-    .attr("x", width / 2)
-    .attr("dy", "1em")
-    .style("text-anchor", "middle")
-    .style("font-size", "10px")
-    .style("font-weight", "700")
-    .text("TMIN");
+// wrapper.append("text")
+//     .attr("y", height + 25)
+//     .attr("x", width / 2)
+//     .attr("dy", "1em")
+//     .style("text-anchor", "middle")
+//     .style("font-size", "10px")
+//     .style("font-weight", "700")
+//     .text("TMIN");
 
-const yAxis = d3.axisLeft(yScale)
-wrapper.append("g")
-    .call(yAxis)
+// const yAxis = d3.axisLeft(yScale)
+// wrapper.append("g")
+//     .call(yAxis)
 
-wrapper.append("text")
-  .attr("transform", "rotate(-90)")
-  .attr("y", -40)
-    .attr("x", -height / 2)
-  .attr("dy", "1em")
-  .style("text-anchor", "middle")
-  .style("font-size", "10px")
-  .style("font-weight", "700")
-  .text("TMAX");
+// wrapper.append("text")
+//   .attr("transform", "rotate(-90)")
+//   .attr("y", -40)
+//     .attr("x", -height / 2)
+//   .attr("dy", "1em")
+//   .style("text-anchor", "middle")
+//   .style("font-size", "10px")
+//   .style("font-weight", "700")
+//   .text("TMAX");
 
 
 
@@ -88,7 +88,7 @@ wrapper.append("text")
 // ☐ month of year vs snowfall
     // month = Number(d3.timeFormat("%m"))
 // ☐ add a color scale for time
-// ☐ add density contours?!
+// ☐ add density contours?! (aka the new hotness)
 
 
 // const contours = d3.contourDensity()
