@@ -1,9 +1,11 @@
+const content = d3.select("#content")
+
 var data = []
 
 const height = 300
 const width = 600
 
-const svg = d3.select('#svg')
+const svg = content.append("svg")
     .attr("height", height)
     .attr("width", width)
 
@@ -55,7 +57,6 @@ const moveCircles = () => {
 }
 
 
-const content = d3.select("#content")
 content.append("br")
 content.append("button")
     .attr("onclick", "addCircles()")

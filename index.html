@@ -9,7 +9,6 @@
 </head>
 <body>
     <div id="links" class="links"></div>
-    <svg id="svg"></svg>
     <div id="content"></div>
 
     <script src="data.js"></script>
@@ -24,7 +23,7 @@
             document.getElementsByTagName("head")[0].appendChild(script);
 
 
-            ['home', 'scales', 'timeline', 'scatterplot', 'weather-scatterplot'].map(page => {
+            ['home', 'svg', 'scales', 'dataset', 'timeline', 'scatterplot', 'weather-scatterplot'].map(page => {
                 d3.select("#links").append("a")
                     .attr("href", `?page=${page}`)
                     .text(page)

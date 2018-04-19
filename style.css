@@ -1,6 +1,11 @@
 body {
+    background: #f4f4f4;
     padding: 30px;
     font-family: sans-serif;
+}
+
+a {
+    color: #45aeb1;
 }
 
 .links {
@@ -17,5 +22,38 @@ body {
 }
 
 svg {
-    border: 1px solid #ddd;
+    background: #fff;
+    /* border: 1px solid #ddd; */
+}
+
+
+/* home */
+.examples {
+    margin-top: 3em;
+}
+
+/* dataset */
+
+.data-fields b {
+    display: inline-block;
+    width: 4em;
+}
+.data-table {
+    white-space: nowrap;
+    border-spacing: 0;
+}
+.data-table th {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    padding: 0.6em;
+    border: none;
+}
+.data-table tr:hover {
+    background: #fff;
+}
+.data-table td {
+    padding: 0.4em 0.6em;
+    font-size: 0.9em;
+    border: none;
 }

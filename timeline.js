@@ -1,6 +1,6 @@
 console.log(data)
+const content = d3.select("#content")
 
-// docs: https://github.com/d3/d3-shape#_line
 
 const margin = {top: 30, right: 10, bottom: 30, left: 50}
 const outerWidth = window.innerWidth - 120
@@ -10,7 +10,7 @@ const height = outerHeight - margin.top - margin.bottom
 
 
 // draw container
-const svg = d3.select("#svg")
+const svg = content.append("svg")
     .attr("width", outerWidth)
     .attr("height", outerHeight)
 
@@ -46,6 +46,7 @@ console.log('yExtent', yExtent)
 
 
 // draw!
+// docs: https://github.com/d3/d3-shape#_line
 const line = d3.area()
     .x(d => xScale(d.date))
     .y(d => yScale(d.TMAX))

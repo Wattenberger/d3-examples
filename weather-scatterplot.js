@@ -1,4 +1,5 @@
 console.log(data)
+const content = d3.select("#content")
 
 const dataSubset = data.slice(0, 100)
 
@@ -16,7 +17,7 @@ const width = outerWidth - margin.left - margin.right
 const height = outerHeight - margin.top - margin.bottom
 
 // draw container
-const svg = d3.select("#svg")
+const svg = content.append("svg")
     .attr("width", outerWidth)
     .attr("height", outerHeight)
 

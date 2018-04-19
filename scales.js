@@ -1,22 +1,55 @@
 const content = d3.select("#content")
-const svg = d3.select("#svg")
 
+const scales = [{
+    name: "nominal",
+    methods: [],
+    description: "no order",
+    example: "yes/no",
+  },{
+    name: "ordinal",
+    methods: ["ordinal"],
+    description: "categories with an order",
+    example: "grades (A,B,C,D,F), Small, Medium, Large",
+  },{
+    name: "discrete",
+    methods: ["sequential", "quantize", "quantile", "threshold", "band", "point"],
+    description: "counts",
+    example: "number of kids (1,2,3)",
+  },{
+    name: "continuous",
+    // linear, power, log, identity, time or sequential color scales
+    methods: ["linear", "pow", "log", "identity", "time"],
+    description: "measurements",
+    example: "height, time",
+}]
+
+content.append("h2").text("Scale types")
+scales.forEach(scale => {
+    content.append("b").text(scale.name)
+    content.append("div").text(scale.description)
+    content.append("i").text(scale.example).style("opacity", "0.5")
+    content.append("br")
+    content.append("br")
+})
 
 // Linear scale
+content.append("h2").text("Linear Scale")
+const svg = content.append("svg")
+    .attr("width", 600)
+    .attr("height", 40)
 
-const scale = d3.scaleLinear()
+const linearScale = d3.scaleLinear()
     .range([0, 500])
     .domain([0, 10])
 
-const ticks = scale.ticks()
-
-svg.attr("width", 600)
-    .attr("height", 100)
+const ticks = linearScale.ticks()
 
 ticks.forEach(tick => {
-    console.log(tick, "↔", scale(tick))
+    content.append("div")
+        .text(`${tick} ↔ ${linearScale(tick)}`)
+
     svg.append("circle")
-        .attr("cx", scale(tick))
+        .attr("cx", linearScale(tick))
         .attr("cy", 20)
         .attr("r", 5)
 })
@@ -32,9 +65,8 @@ const colorScale = d3.scaleLinear()
     .domain([0, 10])
 
 colorScale.ticks().forEach(tick => {
-    console.log(tick, "↔", colorScale(tick))
     content.append("div")
-        .text(colorScale(tick))
+        .text(`${tick} ↔ ${colorScale(tick)}`)
         .style("color", colorScale(tick))
 })
 
@@ -55,10 +87,11 @@ const timeScale = d3.scaleTime()
 
 timeScale.ticks().forEach((tick, i) => {
     let timeString = timeScale(i)
-    // let timeString = d3.timeFormat("%d/%m/%Y %I:%M %-p")(timeScale(i))
-    console.log(i, "↔", timeString)
+    // let timeString = d3.timeFormat("%-m/%d/%Y %I:%M %-p")(timeScale(i))
     content.append("div")
-        .text(timeString)
+        .text(`${i} ↔ ${timeString}`)
 })
 
 // ☐ change the number of ticks
+// ☐ parse datetimes: https://github.com/d3/d3-time-format
+
