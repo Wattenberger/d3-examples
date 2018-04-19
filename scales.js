@@ -29,7 +29,10 @@ content.append("h2").text("Scale types")
 scales.forEach(scale => {
     content.append("b").text(scale.name)
     content.append("div").text(scale.description)
-    content.append("b").text(scale.methods.join(", "))
+    scale.methods.map(method => {
+        content.append("a").text(method).attr("href", `https://github.com/d3/d3-scale#${method}-scales`)
+        content.append("span").text(", ")
+    })
     content.append("br")
     content.append("i").text(scale.example).style("opacity", "0.5")
     content.append("br")

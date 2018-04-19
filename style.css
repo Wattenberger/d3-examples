@@ -14,11 +14,26 @@ a {
 
 .page {
     color: #999;
-    margin-right: 0.6em;
+    margin-right: 1em;
+    text-decoration: none;
 }
 
 .page--selected {
     color: #45aeb1;
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    line-height: 1.5em;
+    font-size: 0.9em;
+}
+
+.section {
+    margin: 3em 0;
 }
 
 svg {

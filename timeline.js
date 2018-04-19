@@ -1,5 +1,8 @@
 console.log(data)
 const content = d3.select("#content")
+// what is this??
+// selections - similar to jQuery
+// return self - can be chained
 
 
 const margin = {top: 30, right: 10, bottom: 30, left: 50}
@@ -13,6 +16,8 @@ const height = outerHeight - margin.top - margin.bottom
 const svg = content.append("svg")
     .attr("width", outerWidth)
     .attr("height", outerHeight)
+    // what is this??
+    // d3 can assign attributes & styles (.style)
 
 const wrapper = svg.append("g")
     .attr("class", "wrapper")
@@ -24,7 +29,10 @@ const wrapper = svg.append("g")
 
 // // parse the dates in the dataset
 // console.log('data[0]', data[0])
-// const parseDate = d3.timeParse("%Y-%m-%d")
+// const parseDate = d3.timeParse("%m/%d/%Y")
+    // what is this??
+    // d3-time-format - for parsing & formatting js datetimes https://github.com/d3/d3-time-format
+
 // const parsedData = data.map(d => Object.assign({}, d, {
 //     date: parseDate(d.DATE),
 // })).slice(-100)
@@ -42,7 +50,7 @@ const wrapper = svg.append("g")
 
 // const yExtent = d3.extent(parsedData, d => d.TMAX)
 // const yScale = d3.scaleLinear()
-//                     .domain([0, yExtent[1]])
+//                     .domain(yExtent)
 //                     .range([height, 0])
 // console.log('yExtent', yExtent)
 
@@ -52,6 +60,8 @@ const wrapper = svg.append("g")
 // const line = d3.line()
 //     .x(d => xScale(d.date))
 //     .y(d => yScale(d.TMAX))
+    // what is this??
+    // d3 attributes can take a constant or a function
 
 // wrapper.append("path")
 //     .datum(parsedData)

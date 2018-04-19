@@ -17,16 +17,16 @@
         (function() {
             const script = document.createElement("script");
             const params = getQueryParams(location.search) || {};
-            const currentPage = params.page || "home";
+            const currentPage = params.page || "intro";
             script.src = `${currentPage}.js`;
             script.type = "text/javascript";
             document.getElementsByTagName("head")[0].appendChild(script);
 
 
-            ['intro', 'drawing-in-the-browser', 'scales', 'dataset', 'timeline', 'scatterplot', 'weather-scatterplot'].map(page => {
+            ['intro', 'what-is-d3', 'drawing-in-the-browser', 'our-dataset', 'scales', 'timeline', 'scatterplots', 'weather-scatterplot', 'resources'].map(page => {
                 d3.select("#links").append("a")
                     .attr("href", `?page=${page}`)
-                    .text(page)
+                    .text(page.split("-").join(" "))
                     .attr("class", page == currentPage ? "page page--selected" : "page")
             })
 
